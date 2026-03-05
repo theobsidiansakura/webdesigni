@@ -1,0 +1,332 @@
+/* CSS VARIABLES */
+:root {
+  --brown:       #7E6551;
+  --dark-brown:  #4b3832;
+  --forest:      #132A13;
+  --cream:       #E7DFC6;
+  --lavender:    #E4C1F9;
+  --white:       #fff;
+}
+
+/* CSS RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--brown);
+  color: var(--white);
+  font-family: 'Lato', Tahoma, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3 {
+  font-family: 'DM Serif Text', Georgia, serif;
+}
+
+h1 {
+  color: var(--lavender);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 0.4rem;
+}
+
+h2 {
+  color: var(--forest);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--dark-brown);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* HEADER */
+header {
+  background-color: var(--brown);
+  padding: 2rem 1rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--lavender);
+}
+
+/* NAV */
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: var(--lavender);
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* ABOUT SECTION — FLEXBOX */
+.about-section {
+  background-color: var(--cream);
+  padding: 3rem 1.5rem;
+}
+
+/* Two-column flexbox layout */
+.about-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-text {
+  flex: 1;
+  color: var(--dark-brown);
+}
+
+.about-text h2 {
+  color: var(--forest);
+}
+
+.about-text p {
+  margin-top: 0.5rem;
+  line-height: 1.8;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 640px) {
+  .about-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* INTERESTS SECTION — GRID */
+.interests-section {
+  background-color: var(--brown);
+  padding: 3rem 1.5rem;
+}
+
+.interests-section h2 {
+  color: var(--lavender);
+  margin-bottom: 1.5rem;
+}
+
+/* Card grid with auto-fill — responsive */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+  max-width: 860px;
+  margin: 0 auto 2rem;
+}
+
+.card {
+  background-color: var(--cream);
+  color: var(--dark-brown);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.inspo-heading {
+  color: var(--lavender);
+  margin-bottom: 0.75rem;
+}
+
+.inspo-list {
+  list-style: none;
+  display: inline-flex;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.inspo-list a {
+  color: var(--lavender);
+  font-weight: 700;
+  font-size: 1rem;
+  border-bottom: 2px solid var(--lavender);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.inspo-list a:hover {
+  color: var(--white);
+  text-decoration: none;
+  border-color: var(--white);
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background-color: var(--cream);
+  color: var(--dark-brown);
+  padding: 3rem 1.5rem;
+}
+
+.contact-section h2 {
+  color: var(--forest);
+}
+
+.contact-section > p {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1.05rem;
+}
+
+.contact-section > p a {
+  color: var(--dark-brown);
+  font-weight: 700;
+  border-bottom: 2px dotted var(--dark-brown);
+}
+
+/* Contact form — flex column, centered */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 420px;
+  margin: 0 auto;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.contact-form label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--forest);
+  margin-top: 0.75rem;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--dark-brown);
+  border-radius: 6px;
+  background-color: var(--white);
+  color: var(--dark-brown);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 1.25rem;
+  align-self: center;
+  background-color: var(--forest);
+  color: var(--lavender);
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 2rem;
+  font-family: 'DM Serif Text', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.contact-form button:hover {
+  background-color: var(--dark-brown);
+  transform: scale(1.03);
+}
+
+/* FIXED "LOVE YOURSELF" BUTTON */
+.box-fixed {
+  background-color: var(--lavender);
+  color: var(--dark-brown);
+  padding: 10px 14px;
+  border: 3px dotted var(--dark-brown);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 200;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s;
+}
+
+.box-fixed:hover {
+  transform: scale(1.08);
+}
+
+.box-fixed a {
+  color: var(--dark-brown);
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--dark-brown);
+  color: var(--cream);
+  font-family: Tahoma, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a {
+  color: var(--lavender);
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
